@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeNest AI | Intelligent Safe Accommodation Discovery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+
+  <!-- Top Navigation Header -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 via-purple-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-rose-500/20">
+          <i class="fa-solid fa-shield-cat text-white text-lg"></i>
+        </div>
+        <div>
+          <h1 class="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-rose-200 to-purple-200">
+            SafeNest AI
+          </h1>
+          <p class="text-xs text-slate-400">Intelligent Safe Student Living & Semantic Matcher</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          TF-IDF & Multi-Criteria Model Active
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Hero / Pitch Section -->
+    <div class="mb-8 p-6 rounded-2xl bg-gradient-to-r from-slate-800/80 to-slate-800/30 border border-slate-700/60 shadow-xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-rose-400">AI / ML Lead Prototype</span>
+          <h2 class="text-2xl font-extrabold text-white mt-1">
+            Semantic PG Matching & Explainable Safety Scoring
+          </h2>
+          <p class="text-sm text-slate-300 mt-1 max-w-2xl">
+            Replaces rigid keyword filters with vector similarity and a multi-factor safety evaluation model prioritizing women's security, CCTV coverage, biometric access, and campus proximity.
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <div class="bg-slate-900/80 border border-slate-700 px-4 py-2 rounded-xl text-center">
+            <span class="text-xs text-slate-400 block">Corpus Size</span>
+            <span class="text-lg font-bold text-indigo-400">{{ results|length }} Listings</span>
+          </div>
+          <div class="bg-slate-900/80 border border-slate-700 px-4 py-2 rounded-xl text-center">
+            <span class="text-xs text-slate-400 block">Safety Weights</span>
+            <span class="text-lg font-bold text-rose-400">7 Features</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search & Filter Control Bar -->
+    <form method="GET" action="/" class="mb-8 space-y-4">
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 text-lg">
+          <i class="fa-solid fa-wand-magic-sparkles text-rose-400"></i>
+        </div>
+        <input 
+          type="text" 
+          name="query" 
+          value="{{ query }}"
+          placeholder="Try: 'quiet room near main gate with strict night security and good food' or 'biometric single room'"
+          class="w-full pl-12 pr-28 py-3.5 bg-slate-800/90 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-500/50 focus:border-rose-500 text-sm shadow-inner"
+        >
+        <button 
+          type="submit" 
+          class="absolute right-2 top-2 bottom-2 px-5 bg-gradient-to-r from-rose-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 text-white font-medium text-xs rounded-lg transition-all duration-200 shadow-md shadow-rose-500/25 flex items-center gap-1.5"
+        >
+          <i class="fa-solid fa-search"></i>
+          AI Match
+        </button>
+      </div>
+
+      <!-- Quick Prompt Pills -->
+      <div class="flex flex-wrap items-center gap-2 text-xs">
+        <span class="text-slate-400 font-medium">Quick Prompts:</span>
+        <a href="/?query=quiet+single+room+biometric+lock+study" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700/80 transition">
+          🎧 Quiet study with biometric
+        </a>
+        <a href="/?query=budget+twin+sharing+home+cooked+food+peaceful" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700/80 transition">
+          🍲 Budget twin with home food
+        </a>
+        <a href="/?query=strict+24x7+security+close+to+campus" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700/80 transition">
+          🛡️ Maximum night security
+        </a>
+        {% if query %}
+        <a href="/" class="ml-auto text-rose-400 hover:text-rose-300 flex items-center gap-1">
+          <i class="fa-solid fa-rotate-left"></i> Reset
+        </a>
+        {% endif %}
+      </div>
+
+      <!-- Sliders / Hyperparameter controls -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 bg-slate-800/40 rounded-xl border border-slate-800">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">
+            Max Budget: <span class="text-rose-400 font-bold">₹{{ budget }}</span>
+          </label>
+          <input type="range" name="budget" min="5000" max="15000" step="500" value="{{ budget }}" onchange="this.form.submit()" class="w-full accent-rose-500">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">
+            Min Safety Index: <span class="text-emerald-400 font-bold">{{ min_safety }}%</span>
+          </label>
+          <input type="range" name="min_safety" min="30" max="95" step="5" value="{{ min_safety }}" onchange="this.form.submit()" class="w-full accent-emerald-500">
+        </div>
+        <div class="flex items-center justify-between pt-3 md:pt-0">
+          <span class="text-xs text-slate-400">Showing <strong>{{ results|length }}</strong> AI-matched accommodations</span>
+        </div>
+      </div>
+    </form>
+
+    <!-- Results Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for item in results %}
+      <div class="bg-slate-800/70 border border-slate-700/80 rounded-2xl p-5 hover:border-slate-600 transition flex flex-col justify-between shadow-lg hover:shadow-2xl">
+        <div>
+          <!-- Header with Match Score & Safety Badges -->
+          <div class="flex items-start justify-between gap-2 mb-3">
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-purple-500/10 text-purple-300 border border-purple-500/30">
+              <i class="fa-solid fa-sparkles text-[10px]"></i>
+              {{ item.composite_match_score }}% Match
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold {% if item.safety_score >= 80 %}bg-emerald-500/10 text-emerald-300 border-emerald-500/30{% elif item.safety_score >= 60 %}bg-amber-500/10 text-amber-300 border-amber-500/30{% else %}bg-rose-500/10 text-rose-300 border-rose-500/30{% endif %} border">
+              <i class="fa-solid fa-shield-heart text-[10px]"></i>
+              Safety: {{ item.safety_score }}%
+            </span>
+          </div>
+
+          <!-- Title & Location -->
+          <h3 class="text-base font-bold text-white leading-tight">
+            {{ item.name }}
+          </h3>
+          <p class="text-xs text-slate-400 mt-1 flex items-center gap-1">
+            <i class="fa-solid fa-location-dot text-rose-400"></i>
+            {{ item.location }}
+          </p>
+
+          <!-- Price & Curfew Tag -->
+          <div class="flex items-center gap-2 mt-3 py-2 border-y border-slate-700/60">
+            <div>
+              <span class="text-xs text-slate-400">Rent</span>
+              <p class="text-base font-extrabold text-white">₹{{ item.monthly_rent }}<span class="text-xs font-normal text-slate-400">/mo</span></p>
+            </div>
+            <div class="h-6 w-px bg-slate-700"></div>
+            <div>
+              <span class="text-xs text-slate-400">Room</span>
+              <p class="text-xs font-semibold text-slate-200">{{ item.room_type }}</p>
+            </div>
+            <div class="h-6 w-px bg-slate-700"></div>
+            <div>
+              <span class="text-xs text-slate-400">Curfew</span>
+              <p class="text-xs font-semibold text-amber-300">{{ item.curfew_time }}</p>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="text-xs text-slate-300 mt-3 line-clamp-2">
+            {{ item.description }}
+          </p>
+
+          <!-- Amenities / Feature Badges -->
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            {% for feat in item.features %}
+            <span class="text-[11px] px-2 py-0.5 rounded bg-slate-700/60 text-slate-300 border border-slate-600/40">
+              {{ feat }}
+            </span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Safety Breakdown Bar -->
+        <div class="mt-4 pt-3 border-t border-slate-700/60">
+          <div class="text-[11px] flex justify-between text-slate-400 mb-1">
+            <span>Semantic Relevance: <strong>{{ item.semantic_similarity_pct }}%</strong></span>
+            <span>Safety Model: <strong>{{ item.safety_score }}/100</strong></span>
+          </div>
+          <div class="w-full h-1.5 bg-slate-700 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-rose-500 via-purple-500 to-emerald-400" style="width: {{ item.safety_score }}%;"></div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if results|length == 0 %}
+    <div class="text-center py-16 bg-slate-800/40 rounded-2xl border border-slate-800 mt-6">
+      <i class="fa-solid fa-filter-circle-xmark text-4xl text-slate-500 mb-3"></i>
+      <h3 class="text-lg font-bold text-white">No accommodations matched your filters</h3>
+      <p class="text-xs text-slate-400 mt-1">Try lowering the minimum safety index threshold or increasing the budget.</p>
+    </div>
+    {% endif %}
+
+    <!-- Architecture & ML Transparency Footer for Interview -->
+    <div class="mt-12 p-6 rounded-2xl bg-slate-900 border border-slate-800">
+      <h3 class="text-sm font-bold text-white flex items-center gap-2">
+        <i class="fa-solid fa-circle-nodes text-indigo-400"></i>
+        Model Architecture & Methodology (For Technical Review)
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3 text-xs text-slate-400">
+        <div class="p-3 rounded-lg bg-slate-800/50">
+          <strong class="text-slate-200 block mb-1">1. Vector Representation</strong>
+          TF-IDF with sublinear term-frequency scaling and L2 normalization implemented using NumPy linear algebra.
+        </div>
+        <div class="p-3 rounded-lg bg-slate-800/50">
+          <strong class="text-slate-200 block mb-1">2. Explainable Safety Scoring</strong>
+          Weighted multi-criteria decision model over 7 key safety metrics (24x7 Guard, CCTV, Biometric, Resident Warden).
+        </div>
+        <div class="p-3 rounded-lg bg-slate-800/50">
+          <strong class="text-slate-200 block mb-1">3. Hybrid Ranking</strong>
+          Balances semantic user intent with strict safety requirements: \( Score = \alpha \cdot Sim + (1-\alpha) \cdot Safety \).
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

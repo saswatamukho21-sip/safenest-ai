@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Starlight Women's Executive Residency",
+    "location": "North Campus (0.4 km from Main Gate)",
+    "monthly_rent": 8500,
+    "room_type": "Twin Sharing",
+    "gender_type": "Female Only",
+    "features": ["Biometric Entry", "24/7 Security Guard", "CCTV Surveillance", "In-house Warden", "WiFi", "3 Meals Daily", "Power Backup"],
+    "safety_metrics": {
+      "cctv_coverage": 95,
+      "security_guard_24x7": 1,
+      "biometric_entry": 1,
+      "resident_warden": 1,
+      "street_lighting_rating": 4.8,
+      "distance_to_campus_km": 0.4,
+      "emergency_alarm_installed": 1
+    },
+    "curfew_time": "10:00 PM",
+    "description": "Premium secure accommodation tailored for female students. Strict security with biometric access, high-speed WiFi, nutritious home-style meals, and quiet study rooms.",
+    "student_rating": 4.9,
+    "verified": true
+  },
+  {
+    "id": 2,
+    "name": "Greenwood Scholars Nest",
+    "location": "South University Road (1.2 km from Campus)",
+    "monthly_rent": 7200,
+    "room_type": "Triple Sharing",
+    "gender_type": "Female Only",
+    "features": ["CCTV Surveillance", "Security Guard", "WiFi", "Attached Washroom", "Study Desks", "Laundry Facility"],
+    "safety_metrics": {
+      "cctv_coverage": 80,
+      "security_guard_24x7": 1,
+      "biometric_entry": 0,
+      "resident_warden": 1,
+      "street_lighting_rating": 4.0,
+      "distance_to_campus_km": 1.2,
+      "emergency_alarm_installed": 1
+    },
+    "curfew_time": "9:30 PM",
+    "description": "Budget-friendly student home with verified warden supervision. Close to public transport and university shuttle pickup. Peaceful study environment with reliable internet.",
+    "student_rating": 4.5,
+    "verified": true
+  },
+  {
+    "id": 3,
+    "name": "Aura SafeLiving Studios",
+    "location": "Metro Tech Park Road (0.8 km from Campus)",
+    "monthly_rent": 11500,
+    "room_type": "Single Private Room",
+    "gender_type": "Female Only",
+    "features": ["Smart Lock Entry", "24/7 Concierge & Security", "Full CCTV", "AC", "High-speed Fiber WiFi", "Gym Access", "Organic Meals"],
+    "safety_metrics": {
+      "cctv_coverage": 98,
+      "security_guard_24x7": 1,
+      "biometric_entry": 1,
+      "resident_warden": 1,
+      "street_lighting_rating": 5.0,
+      "distance_to_campus_km": 0.8,
+      "emergency_alarm_installed": 1
+    },
+    "curfew_time": "11:00 PM (Flexible with App OTP)",
+    "description": "Modern studio living designed for postgraduates and researchers. Advanced smart keycard safety, soundproof work pods, round-the-clock female security staff, and hygienic food.",
+    "student_rating": 4.9,
+    "verified": true
+  },
+  {
+    "id": 4,
+    "name": "Ananya Girls Comfort Home",
+    "location": "Gandhi Colony, East Gate (0.6 km from Campus)",
+    "monthly_rent": 6800,
+    "room_type": "Twin Sharing",
+    "gender_type": "Female Only",
+    "features": ["Gated Premises", "Night Guard", "CCTV Entrance", "Home Cooked Food", "RO Water", "Doctor on Call"],
+    "safety_metrics": {
+      "cctv_coverage": 70,
+      "security_guard_24x7": 0,
+      "biometric_entry": 0,
+      "resident_warden": 1,
+      "street_lighting_rating": 4.2,
+      "distance_to_campus_km": 0.6,
+      "emergency_alarm_installed": 0
+    },
+    "curfew_time": "9:00 PM",
+    "description": "Homely and warm atmosphere run by retired professor family. Very caring environment with home-cooked nutritious vegetarian food and quiet night hours for exam preparation.",
+    "student_rating": 4.6,
+    "verified": true
+  },
+  {
+    "id": 5,
+    "name": "MetroView Youth Co-Living",
+    "location": "City Center Metro (2.5 km from Campus)",
+    "monthly_rent": 9000,
+    "room_type": "Twin Sharing",
+    "gender_type": "Co-ed (Separate Wings)",
+    "features": ["RFID Access", "24/7 Security", "CCTV", "Cafe & Lounge", "Laundry", "Gaming Zone", "High-speed WiFi"],
+    "safety_metrics": {
+      "cctv_coverage": 85,
+      "security_guard_24x7": 1,
+      "biometric_entry": 1,
+      "resident_warden": 0,
+      "street_lighting_rating": 4.6,
+      "distance_to_campus_km": 2.5,
+      "emergency_alarm_installed": 1
+    },
+    "curfew_time": "10:30 PM",
+    "description": "Vibrant co-living community with dedicated women-only floor and separate electronic keycard elevators. Walking distance to Metro station.",
+    "student_rating": 4.3,
+    "verified": true
+  },
+  {
+    "id": 6,
+    "name": "Shree Nilaya Heritage PG",
+    "location": "Temple Lane (1.8 km from Campus)",
+    "monthly_rent": 5800,
+    "room_type": "Four Sharing",
+    "gender_type": "Female Only",
+    "features": ["Gate Security", "Water Purifier", "Study Area", "Home Meals"],
+    "safety_metrics": {
+      "cctv_coverage": 40,
+      "security_guard_24x7": 0,
+      "biometric_entry": 0,
+      "resident_warden": 1,
+      "street_lighting_rating": 3.2,
+      "distance_to_campus_km": 1.8,
+      "emergency_alarm_installed": 0
+    },
+    "curfew_time": "8:30 PM",
+    "description": "Very economical budget stay for students. Traditional rules and peaceful neighborhood, though distance requires auto-rickshaw commute after dark.",
+    "student_rating": 3.8,
+    "verified": false
+  }
+]
